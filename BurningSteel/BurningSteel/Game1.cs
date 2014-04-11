@@ -23,6 +23,8 @@ namespace BurningSteel
 
         public SpriteBatch spriteBatch;
         public TitleScreen titleScreen;
+        public StartMenuScreen startMenuScreen;
+
 
         private const int screenWidth = 1024;
         private const int screenHeight = 768;
@@ -45,6 +47,8 @@ namespace BurningSteel
             Components.Add(gameStateManager);
 
             titleScreen = new TitleScreen(this, gameStateManager);
+            startMenuScreen = new StartMenuScreen(this, gameStateManager);
+
             gameStateManager.ChangeState(titleScreen);
         }
 

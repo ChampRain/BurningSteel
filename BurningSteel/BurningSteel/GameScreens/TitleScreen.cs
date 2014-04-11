@@ -6,13 +6,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using XRpgLibrary;
+using XRpgLibrary.Controls;
 
 namespace BurningSteel.GameScreens
 {
-    class TitleScreen : BaseGameState
+    public class TitleScreen : BaseGameState
     {
 
-        private Texture2D backgroundImage;
+        Texture2D backgroundImage;
+        LinkLabel linkLabel;
 
         public TitleScreen(Game game, GameStateManager manager) : base(game, manager)
         {
@@ -22,7 +24,7 @@ namespace BurningSteel.GameScreens
         protected override void LoadContent()
         {
             ContentManager Content = gameRef.Content;
-            backgroundImage = Content.Load<Texture2D>("backgroundImg.png");  //add in background
+            backgroundImage = Content.Load<Texture2D>(@"Backgrounds\k");  //add in background
             base.LoadContent();
         }
 
