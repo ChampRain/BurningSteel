@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace XRpgLibrary.Controls
 {
-    class Label : Control
+    public class Label : Control
     {
         public Label()
         {

@@ -14,7 +14,7 @@ namespace BurningSteel.GameScreens
     {
 
         Texture2D backgroundImage;
-        LinkLabel linkLabel;
+        LinkLabel startLabel;
 
         public TitleScreen(Game game, GameStateManager manager) : base(game, manager)
         {
@@ -23,13 +23,25 @@ namespace BurningSteel.GameScreens
 
         protected override void LoadContent()
         {
-            ContentManager Content = gameRef.Content;
-            backgroundImage = Content.Load<Texture2D>(@"Backgrounds\k");  //add in background
+            ContentManager content = gameRef.Content;
+            backgroundImage = content.Load<Texture2D>(@"Backgrounds\k");  //add in background
+
             base.LoadContent();
+
+            startLabel = new LinkLabel();
+            startLabel.Color = Color.White;
+            startLabel.Position = new Vector2(350,600);
+            startLabel.Text = "Press ENTER To Begin";
+            startLabel.TabStop = true;
+            startLabel.HasFocus = true;
+            startLabel.Selected += new EventHandler(linkLabel_Selected);
+
+            ControlManager.Add(startLabel);
         }
 
         public override void Update(GameTime gameTime)
         {
+            ControlManager.Update(gameTime, PlayerIndex.One);
             base.Update(gameTime);
         }
 
@@ -41,7 +53,14 @@ namespace BurningSteel.GameScreens
 
             gameRef.spriteBatch.Draw(backgroundImage, gameRef.ScreenRectangle, Color.White);
 
+            ControlManager.Draw(gameRef.spriteBatch);
+
             gameRef.spriteBatch.End();
+        }
+
+        private void linkLabel_Selected(object sender, EventArgs e)
+        {
+            stateManager.PushState(gameRef.startMenuScreen);
         }
     }
 }
