@@ -24,7 +24,7 @@ namespace BurningSteel.GameScreens
         protected override void LoadContent()
         {
             ContentManager content = gameRef.Content;
-            backgroundImage = content.Load<Texture2D>(@"Backgrounds\k");  //add in background
+            backgroundImage = content.Load<Texture2D>(@"Backgrounds\introbackground");  //add in background
 
             base.LoadContent();
 

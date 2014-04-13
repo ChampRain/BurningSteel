@@ -16,7 +16,7 @@ namespace BurningSteel.GameScreens
     {
         protected Game1 gameRef;
         protected ControlManager ControlManager;
-        private PlayerIndex playerIndexInControl;
+        public PlayerIndex playerIndexInControl;
 
         public BaseGameState(Game game, GameStateManager manager) : base (game, manager)
         {

@@ -35,10 +35,10 @@ namespace BurningSteel.GameScreens
             base.LoadContent();
 
             ContentManager Content = Game.Content;
-            backgroundImage = new PictureBox(Content.Load<Texture2D>(@"Backgrounds\titleScreen"),
+            backgroundImage = new PictureBox(Content.Load<Texture2D>(@"Backgrounds\titlescreen"),
                                              gameRef.ScreenRectangle);
             ControlManager.Add(backgroundImage);
-            Texture2D arrowTexture = Content.Load<Texture2D>(@"GUI\menuArrow");
+            Texture2D arrowTexture = Content.Load<Texture2D>(@"GUI\cursor");
 
             arrowImage = new PictureBox(arrowTexture, new Rectangle(0,0,arrowTexture.Width,arrowTexture.Height));
             ControlManager.Add(arrowImage);
@@ -65,20 +65,65 @@ namespace BurningSteel.GameScreens
             ControlManager.Add(exitGame);
 
             ControlManager.NextControl();
+
+            ControlManager.FocusChanged += new EventHandler(ControlManager_FocusChanged);
+            Vector2 position = new Vector2(350, 500);
+
+            foreach (Control c in ControlManager)
+            {
+                if (c.Size.X > maxItemWidth)
+                {
+                    maxItemWidth = c.Size.X;
+                }
+
+                c.Position = position;
+                position.Y = c.Position.Y + 5f;
+            }
+
+            ControlManager.FocusChanged(startGame, null);
+        }
+
+        private void ControlManager_FocusChanged(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            Vector2 position = new Vector2(control.Position.X + maxItemWidth + 10f, control.Position.Y);
+
+            arrowImage.SetPosition(position);
+        }
+
+        private void menu_ItemSelected(object sender, EventArgs e)
+        {
+            if (sender == startGame)
+            {
+                stateManager.PushState(gameRef.gamePlayScreen);
+            }
+
+            if (sender == loadGame)
+            {
+                stateManager.PushState(gameRef.gamePlayScreen);
+            }
+
+            if (sender == exitGame)
+            {
+                gameRef.Exit();
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
+            ControlManager.Update(gameTime, playerIndexInControl);
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            if (InputHandler.KeyReleased(Keys.Escape))
-            {
-                Game.Exit();
-            }
+            gameRef.spriteBatch.Begin();
+
             base.Draw(gameTime);
+
+            ControlManager.Draw(gameRef.spriteBatch);
+
+            gameRef.spriteBatch.End();
         }
     }
 }
