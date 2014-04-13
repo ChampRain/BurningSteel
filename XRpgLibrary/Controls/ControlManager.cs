@@ -13,6 +13,7 @@ namespace XRpgLibrary.Controls
     {
         private int selectedControl = 0;
         private static SpriteFont spriteFont;
+        public EventHandler FocusChanged;
 
         public static SpriteFont SpriteFont
         {
@@ -98,6 +99,10 @@ namespace XRpgLibrary.Controls
 
                 if (this[selectedControl].TabStop && this[selectedControl].Enabled)
                 {
+                    if (FocusChanged != null)
+                    {
+                        FocusChanged(this[selectedControl], null);
+                    }
                     break;
                 }
             } while (currentControl != selectedControl);
@@ -127,6 +132,10 @@ namespace XRpgLibrary.Controls
 
                 if (this[selectedControl].TabStop && this[selectedControl].Enabled)
                 {
+                    if (FocusChanged != null)
+                    {
+                        FocusChanged(this[selectedControl], null);
+                    }
                     break;
                 }
 
