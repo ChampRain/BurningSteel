@@ -77,7 +77,7 @@ namespace BurningSteel.GameScreens
                 }
 
                 c.Position = position;
-                position.Y = c.Position.Y + 5f;
+                position.Y = c.Position.Y + 30f;
             }
 
             ControlManager.FocusChanged(startGame, null);
