@@ -25,6 +25,7 @@ namespace BurningSteel
         public TitleScreen titleScreen;
         public StartMenuScreen startMenuScreen;
         public GamePlayScreen gamePlayScreen;
+        public CharacterGeneratorScreen characterScreen;
 
         private const int screenWidth = 1024;
         private const int screenHeight = 768;
@@ -36,6 +37,7 @@ namespace BurningSteel
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
+            //graphics.IsFullScreen = true;
 
             ScreenRectangle = new Rectangle(0,0,screenWidth,screenHeight);
 
@@ -49,6 +51,7 @@ namespace BurningSteel
             titleScreen = new TitleScreen(this, gameStateManager);
             startMenuScreen = new StartMenuScreen(this, gameStateManager);
             gamePlayScreen = new GamePlayScreen(this,gameStateManager);
+            characterScreen = new CharacterGeneratorScreen(this, gameStateManager);
 
             gameStateManager.ChangeState(titleScreen);
         }

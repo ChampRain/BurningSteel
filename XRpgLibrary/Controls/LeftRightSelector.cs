@@ -76,7 +76,7 @@ namespace XRpgLibrary.Controls
 
             spriteBatch.Draw(selectedItem != 0 ? leftTexture : stopTexture, drawTo, Color);
 
-            drawTo.X = leftTexture.Width + 5f;
+            drawTo.X += leftTexture.Width + 55f; ;
 
             float itemWidth = SpriteFont.MeasureString(items[selectedItem]).X;
             float offset = (maxItemWidth - itemWidth)/2;
@@ -85,7 +85,7 @@ namespace XRpgLibrary.Controls
 
             spriteBatch.DrawString(spriteFont, items[selectedItem], drawTo, hasFocus ? selectedColor : Color);
 
-            drawTo.X = + -1*offset + maxItemWidth + 5f;
+            drawTo.X +=  -1*offset  + 95f;
 
             spriteBatch.Draw(selectedItem != items.Count - 1 ? rightTexture : stopTexture, drawTo, Color.White);
         }
@@ -106,6 +106,7 @@ namespace XRpgLibrary.Controls
                 {
                     selectedItem = 0;
                 }
+                
                 OnSelectedChanged();
             }
 

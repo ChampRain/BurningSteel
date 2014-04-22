@@ -17,7 +17,7 @@ namespace XRpgLibrary.Controls
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+           
         }
 
         public override void Draw(SpriteBatch spriteBatch)

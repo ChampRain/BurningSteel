@@ -95,7 +95,7 @@ namespace BurningSteel.GameScreens
         {
             if (sender == startGame)
             {
-                stateManager.PushState(gameRef.gamePlayScreen);
+                stateManager.PushState(gameRef.characterScreen);
             }
 
             if (sender == loadGame)
