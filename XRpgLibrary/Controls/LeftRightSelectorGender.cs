@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace XRpgLibrary.Controls
 {
-    public class LeftRightSelector : Control
+    public class LeftRightSelectorGender : Control
     {
         public EventHandler SelectionChanged;
 
@@ -39,7 +39,7 @@ namespace XRpgLibrary.Controls
             get { return items; }
         }
 
-        public LeftRightSelector(Texture2D leftArrow, Texture2D rightArrow, Texture2D stop)
+        public LeftRightSelectorGender(Texture2D leftArrow, Texture2D rightArrow, Texture2D stop)
         {
             leftTexture = leftArrow;
             rightTexture = rightArrow;
@@ -76,7 +76,7 @@ namespace XRpgLibrary.Controls
 
             spriteBatch.Draw(selectedItem != 0 ? leftTexture : stopTexture, drawTo, Color);
 
-            drawTo.X += leftTexture.Width + 55f; ;
+            drawTo.X += leftTexture.Width + 55f;
 
             float itemWidth = SpriteFont.MeasureString(items[selectedItem]).X;
             float offset = (maxItemWidth - itemWidth)/2;
@@ -101,25 +101,37 @@ namespace XRpgLibrary.Controls
                 InputHandler.ButtonReleased(Buttons.DPadLeft, playerIndex) ||
                 InputHandler.KeyReleased(Keys.Left))
             {
-                selectedItem--;
-                if (selectedItem < 0)
+                if (this.hasFocus)
                 {
-                    selectedItem = 0;
+                    selectedItem--;
+                    if (selectedItem < 0)
+                    {
+                        if (this.hasFocus)
+                        {
+                            selectedItem = 0;
+                        }
+                    }
+
+                    OnSelectedChanged();
                 }
-                
-                OnSelectedChanged();
             }
 
             if (InputHandler.ButtonReleased(Buttons.LeftThumbstickRight, playerIndex) ||
                 InputHandler.ButtonReleased(Buttons.DPadRight, playerIndex) ||
                 InputHandler.KeyReleased(Keys.Right))
             {
-                selectedItem++;
-                if (selectedItem >= items.Count)
+                if (this.hasFocus)
                 {
-                    selectedItem = items.Count - 1;
+                    selectedItem++;
+                    if (selectedItem >= items.Count)
+                    {
+                        if (this.hasFocus)
+                        {
+                            selectedItem = items.Count - 1;
+                        }
+                    }
+                    OnSelectedChanged();
                 }
-                OnSelectedChanged();
             }
         }
     }

@@ -15,8 +15,14 @@ namespace XRpgLibrary.Controls
         protected bool hasFocus, enabled, visible, tabStop;
         protected SpriteFont spriteFont;
         protected Color color;
+        protected int changed;
 
         public EventHandler Selected;
+
+        public int Changed
+        {
+            get { return changed; }
+        }
 
         public string Name
         {

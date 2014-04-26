@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Player.cs" />
     <Compile Include="GameScreens\BaseGameState.cs" />
     <Compile Include="GameScreens\CharacterGeneratorScreen.cs" />

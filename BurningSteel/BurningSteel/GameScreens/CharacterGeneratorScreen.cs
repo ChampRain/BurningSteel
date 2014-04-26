@@ -13,8 +13,8 @@ namespace BurningSteel.GameScreens
 {
     public class CharacterGeneratorScreen : BaseGameState
     {
-        private LeftRightSelector classSelector;
-        private LeftRightSelector genderSelector;
+        private LeftRightSelectorClass classSelector;
+        private LeftRightSelectorGender genderSelector;
         private PictureBox backgroundImage;
 
         private string[] genderItems = {"Male", "Female"};
@@ -72,13 +72,13 @@ namespace BurningSteel.GameScreens
 
             ControlManager.Add(label);
 
-            genderSelector = new LeftRightSelector(leftTexture, righTexture, stopTexture);
+            genderSelector = new LeftRightSelectorGender(leftTexture, righTexture, stopTexture);
             genderSelector.SetItems(genderItems, 40);
             genderSelector.Position = new Vector2(400, 475);
 
             ControlManager.Add(genderSelector);
 
-            classSelector = new LeftRightSelector(leftTexture, righTexture, stopTexture);
+            classSelector = new LeftRightSelectorClass(leftTexture, righTexture, stopTexture);
             classSelector.SetItems(classItems, 40);
             classSelector.Position = new Vector2(400, 550);
 
