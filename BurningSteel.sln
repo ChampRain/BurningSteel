@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurningSteel", "BurningSteel\BurningSteel\BurningSteel.csproj", "{75DACBB5-9F1F-43DF-AFD9-56E429BB2E89}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BurningSteelContent", "BurningSteel\BurningSteelContent\BurningSteelContent.contentproj", "{31B86E8A-B095-43CF-B611-776466DE6627}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurningSteelContent", "BurningSteel\BurningSteelContent\BurningSteelContent.contentproj", "{31B86E8A-B095-43CF-B611-776466DE6627}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XRpgLibrary", "XRpgLibrary\XRpgLibrary.csproj", "{0D202B0F-C3D5-491E-89E3-1A75EF5590F8}"
 EndProject

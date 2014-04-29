@@ -7,7 +7,9 @@ using BurningSteel.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using XRpgLibrary;
+using XRpgLibrary.SpriteClass;
 using XRpgLibrary.TileEngine;
 
 namespace BurningSteel.GameScreens
@@ -17,7 +19,8 @@ namespace BurningSteel.GameScreens
         private Engine engine = new Engine(32,32);
         private TileMap map;
         private Player player;
-        
+        private AnimatedSprite sprite;
+
         public GamePlayScreen(Game game, GameStateManager manager) : base(game, manager)
         {
             player = new Player(game);
@@ -30,6 +33,23 @@ namespace BurningSteel.GameScreens
 
         protected override void LoadContent()
         {
+            Texture2D spriteSheet = Game.Content.Load<Texture2D>(@"PlayerSprites/malefighter");
+            Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
+
+            Animation animation = new Animation(3,32,32,0,0);
+            animations.Add(AnimationKey.Down, animation);
+
+            animation = new Animation(3,32,32,0,32);
+            animations.Add(AnimationKey.Left, animation);
+
+            animation = new Animation(3,32,32,0,64);
+            animations.Add(AnimationKey.Right, animation);
+
+            animation = new Animation(3, 32, 32, 0, 96);
+            animations.Add(AnimationKey.Up, animation);
+
+            sprite = new AnimatedSprite(spriteSheet, animations);
+
             base.LoadContent();
 
             Texture2D tileSetTextureGrass = Game.Content.Load<Texture2D>(@"TileSets/grassTileSet");
@@ -84,7 +104,7 @@ namespace BurningSteel.GameScreens
                                       SamplerState.PointClamp, null, null, null, Matrix.Identity);
 
             map.Draw(gameRef.spriteBatch, player.Camera);
-
+            sprite.Draw(gameTime, gameRef.spriteBatch, player.Camera);
             base.Draw(gameTime);
             gameRef.spriteBatch.End();
         }
@@ -92,6 +112,73 @@ namespace BurningSteel.GameScreens
         public override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
+            sprite.Update(gameTime);
+
+            if (InputHandler.KeyReleased(Keys.PageUp) ||
+                InputHandler.ButtonReleased(Buttons.LeftShoulder, PlayerIndex.One))
+            {
+                //player.Camera.Zoom();
+            }
+
+
+            Vector2 motion = new Vector2();
+
+            if (InputHandler.KeyDown(Keys.W) || InputHandler.ButtonDown(Buttons.LeftThumbstickUp, PlayerIndex.One))
+            {
+                sprite.CurrentAnimation = AnimationKey.Up;
+                motion.Y = -1;
+            }
+            if (InputHandler.KeyDown(Keys.S) || InputHandler.ButtonDown(Buttons.LeftThumbstickDown, PlayerIndex.One))
+            {
+                sprite.CurrentAnimation = AnimationKey.Down;
+                motion.Y = 1;
+            }
+            if (InputHandler.KeyDown(Keys.A) || InputHandler.ButtonDown(Buttons.LeftThumbstickLeft, PlayerIndex.One))
+            {
+                sprite.CurrentAnimation = AnimationKey.Left;
+                motion.X = -1;
+            }
+            if (InputHandler.KeyDown(Keys.D) || InputHandler.ButtonDown(Buttons.LeftThumbstickRight, PlayerIndex.One))
+            {
+                sprite.CurrentAnimation = AnimationKey.Right;
+                motion.X = 1;
+            }
+
+            if (motion != Vector2.Zero)
+            {
+                sprite.IsAnimating = true;
+                motion.Normalize();
+
+                sprite.Position += motion*sprite.Speed;
+                sprite.LockToMap();
+
+                if (player.Camera.CameraMode == CameraMode.Follow)
+                {
+                    player.Camera.LockToSprite(sprite);
+                }
+            }
+            else
+            {
+                sprite.IsAnimating = false;
+            }
+
+            if (InputHandler.KeyReleased(Keys.F) || InputHandler.ButtonReleased(Buttons.RightStick, PlayerIndex.One))
+            {
+                player.Camera.ToggleCameraMode();
+                if (player.Camera.CameraMode == CameraMode.Follow)
+                {
+                    player.Camera.LockToSprite(sprite);
+                }
+            }
+
+            if (player.Camera.CameraMode != CameraMode.Follow)
+            {
+                if (InputHandler.KeyReleased(Keys.C) || InputHandler.ButtonReleased(Buttons.LeftStick, PlayerIndex.One))
+                {
+                    player.Camera.LockToSprite(sprite);
+                }
+            }
+
             base.Update(gameTime);
         }
     }

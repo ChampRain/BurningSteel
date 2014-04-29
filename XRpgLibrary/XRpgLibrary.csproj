@@ -103,6 +103,8 @@
     <Compile Include="GameStateManager.cs" />
     <Compile Include="InputHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpriteClass\AnimatedSprite.cs" />
+    <Compile Include="SpriteClass\Animation.cs" />
     <Compile Include="TileEngine\Camera.cs" />
     <Compile Include="TileEngine\Engine.cs" />
     <Compile Include="TileEngine\MapLayer.cs" />

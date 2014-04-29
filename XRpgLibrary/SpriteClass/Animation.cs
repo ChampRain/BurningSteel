@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
-using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace BurningSteel.Components
+namespace XRpgLibrary.SpriteClass
 {
-    class Animation
-    {
-        public enum AnimationKey {down, left, right, up, upleft, upright, downleft, downright }
+    public enum AnimationKey { Down, Left, Right, Up }
 
+    public class Animation : ICloneable
+    {
         private Rectangle[] frames;
         private int framesPerSecond;
         private TimeSpan frameLength, frameTimer;
@@ -32,7 +28,7 @@ namespace BurningSteel.Components
             }
         }
 
-        public Rectangle currentFrameRect
+        public Rectangle CurrentFrameRect
         {
             get { return frames[currentFrame]; }
         }
