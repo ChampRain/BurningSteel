@@ -91,7 +91,7 @@ namespace XRpgLibrary.SpriteClass
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Camera camera)
         {
-            spriteBatch.Draw(texture, position - camera.Position, animations[currentAnimation].CurrentFrameRect, Color.White);
+            spriteBatch.Draw(texture, position, animations[currentAnimation].CurrentFrameRect, Color.White);
         }
 
         public void LockToMap()

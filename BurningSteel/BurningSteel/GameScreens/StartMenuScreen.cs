@@ -35,7 +35,7 @@ namespace BurningSteel.GameScreens
             base.LoadContent();
 
             ContentManager Content = Game.Content;
-            backgroundImage = new PictureBox(Content.Load<Texture2D>(@"Backgrounds\titlescreen"),
+            backgroundImage = new PictureBox(Content.Load<Texture2D>(@"Backgrounds\title"),
                                              gameRef.ScreenRectangle);
             ControlManager.Add(backgroundImage);
             Texture2D arrowTexture = Content.Load<Texture2D>(@"GUI\cursor");
@@ -100,7 +100,7 @@ namespace BurningSteel.GameScreens
 
             if (sender == loadGame)
             {
-                stateManager.PushState(gameRef.gamePlayScreen);
+                //stateManager.PushState(gameRef.gamePlayScreen);
             }
 
             if (sender == exitGame)

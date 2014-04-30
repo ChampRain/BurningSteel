@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace XRpgLibrary.Controls
 {
-    public class LeftRightSelectorGender : Control
+    public class LeftRightSelector : Control
     {
-        public EventHandler SelectionChanged;
+        public EventHandler SelectedChanged;
 
         List<String> items = new List<string>();
         private Texture2D leftTexture, rightTexture, stopTexture;
@@ -39,7 +39,7 @@ namespace XRpgLibrary.Controls
             get { return items; }
         }
 
-        public LeftRightSelectorGender(Texture2D leftArrow, Texture2D rightArrow, Texture2D stop)
+        public LeftRightSelector(Texture2D leftArrow, Texture2D rightArrow, Texture2D stop)
         {
             leftTexture = leftArrow;
             rightTexture = rightArrow;
@@ -60,9 +60,11 @@ namespace XRpgLibrary.Controls
 
         protected void OnSelectedChanged()
         {
-            if (SelectionChanged != null)
+            base.OnSelected(null);
+
+            if (SelectedChanged != null)
             {
-                SelectionChanged(this, null);
+                SelectedChanged(this, null);
             }
         }
 
@@ -103,15 +105,13 @@ namespace XRpgLibrary.Controls
             {
                 if (this.hasFocus)
                 {
+
                     selectedItem--;
                     if (selectedItem < 0)
                     {
-                        if (this.hasFocus)
-                        {
-                            selectedItem = 0;
-                        }
-                    }
+                        selectedItem = 0;
 
+                    }
                     OnSelectedChanged();
                 }
             }
@@ -125,13 +125,11 @@ namespace XRpgLibrary.Controls
                     selectedItem++;
                     if (selectedItem >= items.Count)
                     {
-                        if (this.hasFocus)
-                        {
-                            selectedItem = items.Count - 1;
-                        }
+
+                        selectedItem = items.Count - 1;
                     }
-                    OnSelectedChanged();
                 }
+                OnSelectedChanged();
             }
         }
     }

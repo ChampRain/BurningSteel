@@ -33,7 +33,10 @@ namespace BurningSteel.GameScreens
 
         protected override void LoadContent()
         {
-            Texture2D spriteSheet = Game.Content.Load<Texture2D>(@"PlayerSprites/malefighter");
+            Texture2D spriteSheet = Game.Content.Load<Texture2D>(@"PlayerSprites/" + 
+                                                gameRef.characterScreen.SelectedGender + 
+                                                gameRef.characterScreen.SelectedClass);
+
             Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
 
             Animation animation = new Animation(3,32,32,0,0);
@@ -100,8 +103,8 @@ namespace BurningSteel.GameScreens
 
         public override void Draw(GameTime gameTime)
         {
-            gameRef.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                                      SamplerState.PointClamp, null, null, null, Matrix.Identity);
+            gameRef.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
+                                      SamplerState.PointClamp, null, null, null, player.Camera.Transformation);
 
             map.Draw(gameRef.spriteBatch, player.Camera);
             sprite.Draw(gameTime, gameRef.spriteBatch, player.Camera);
@@ -113,13 +116,6 @@ namespace BurningSteel.GameScreens
         {
             player.Update(gameTime);
             sprite.Update(gameTime);
-
-            if (InputHandler.KeyReleased(Keys.PageUp) ||
-                InputHandler.ButtonReleased(Buttons.LeftShoulder, PlayerIndex.One))
-            {
-                //player.Camera.Zoom();
-            }
-
 
             Vector2 motion = new Vector2();
 

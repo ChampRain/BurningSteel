@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -57,21 +58,15 @@ namespace XRpgLibrary.Controls
             if (InputHandler.ButtonPressed(Buttons.LeftThumbstickUp, playerIndex) ||
                 InputHandler.ButtonPressed(Buttons.DPadUp, playerIndex) ||
                 InputHandler.KeyPressed(Keys.Up))
-            {
-                
-                    PreviousControl();
-           
+            {                
+                PreviousControl();
             }
 
             if (InputHandler.ButtonPressed(Buttons.LeftThumbstickDown, playerIndex) ||
                 InputHandler.ButtonPressed(Buttons.DPadDown, playerIndex) ||
                 InputHandler.KeyPressed(Keys.Down))
-            {
-                
-                {
-                    NextControl();
-                }
-               
+            {                               
+                NextControl();  
             }
         }
 
@@ -84,38 +79,42 @@ namespace XRpgLibrary.Controls
             }
         }
 
-        public void NextControl()
+        public void NextControl(int i = 0)
         {
             if (Count == 0)
             {
                 return;
             }
 
-                int currentControl = selectedControl;
+            int currentControl = selectedControl;
 
-                this[selectedControl].HasFocus = false;
+            this[selectedControl].HasFocus = false;
 
-                do
+            do
+            {
+                selectedControl ++;
+
+                if (selectedControl == Count)
                 {
-                    selectedControl ++;
+                    selectedControl = 0;
+                }
 
-                    if (selectedControl == Count)
+                if (this[selectedControl].TabStop && this[selectedControl].Enabled)
+                {
+                    if (FocusChanged != null)
                     {
-                        selectedControl = 0;
+                        FocusChanged(this[selectedControl], null);
                     }
+                    break;
+                }
+            } while (currentControl != selectedControl);
 
-                    if (this[selectedControl].TabStop && this[selectedControl].Enabled)
-                    {
-                        if (FocusChanged != null)
-                        {
-                            FocusChanged(this[selectedControl], null);
-                        }
-                        break;
-                    }
-                } while (currentControl != selectedControl);
+            this[selectedControl].HasFocus = true;
 
-                this[selectedControl].HasFocus = true;
-            
+            if (i == 1)
+            {
+                
+            }
         }
 
         public void PreviousControl()

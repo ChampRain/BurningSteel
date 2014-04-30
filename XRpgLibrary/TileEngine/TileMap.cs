@@ -17,12 +17,12 @@ namespace XRpgLibrary.TileEngine
 
         public static int WidthInPixels
         {
-            get { return mapWidth; }
+            get { return mapWidth * Engine.TileWidth; ; }
         }
 
         public static int HeightInPixels
         {
-            get { return mapHeight; }
+            get { return mapHeight * Engine.TileHeight; }
         }
 
         public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)
@@ -55,7 +55,7 @@ namespace XRpgLibrary.TileEngine
             {
                 for (int y = 0; y < mapLayer.Height; y++)
                 {
-                    destination.Y = y * Engine.TileHeight - (int)camera.Position.Y;
+                    destination.Y = y * Engine.TileHeight;
 
                     for (int x = 0; x < mapLayer.Width; x++)
                     {
@@ -66,7 +66,7 @@ namespace XRpgLibrary.TileEngine
                             continue;
                         }
 
-                        destination.X = x * Engine.TileWidth - (int)camera.Position.X;
+                        destination.X = x * Engine.TileWidth;
 
                         spriteBatch.Draw(tilesets[tile.TileSet].Texture, destination, 
                                          tilesets[tile.TileSet].SourceRectangles[tile.TileIndex], Color.White);

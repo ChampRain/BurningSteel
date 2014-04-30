@@ -17,6 +17,17 @@ namespace XRpgLibrary.TileEngine
         Rectangle viewPortRectangle;
         private CameraMode mode;
 
+        public Matrix Transformation
+        {
+            get { return Matrix.CreateScale(zoom)*Matrix.CreateTranslation(new Vector3(-Position, 0f)); }
+        }
+
+        public Rectangle ViewPortRectangle
+        {
+            get {return new Rectangle(viewPortRectangle.X, viewPortRectangle.Y, 
+                                      viewPortRectangle.Width, viewPortRectangle.Height);}
+        }
+
         public Vector2 Position
         {
             get { return position; }
@@ -58,6 +69,17 @@ namespace XRpgLibrary.TileEngine
 
         public void Update(GameTime gameTime)
         {
+
+            if (InputHandler.KeyReleased(Keys.PageUp) ||
+                InputHandler.ButtonReleased(Buttons.LeftShoulder, PlayerIndex.One))
+            {
+                ZoomIn();
+            }
+            else if (InputHandler.KeyReleased(Keys.PageDown) ||
+                InputHandler.ButtonReleased(Buttons.RightShoulder, PlayerIndex.One))
+            {
+                ZoomOut();
+            }
 
             if (mode == CameraMode.Follow)
             {
@@ -116,6 +138,26 @@ namespace XRpgLibrary.TileEngine
             else if (mode == CameraMode.Free)
             {
                 mode = CameraMode.Follow;
+            }
+        }
+
+        public void ZoomIn()
+        {
+            zoom += .25f;
+
+            if (zoom > 1f)
+            {
+                zoom = 1f;
+            }
+        }
+
+        public void ZoomOut()
+        {
+            zoom -= .25f;
+
+            if (zoom < .5f)
+            {
+                zoom = .5f;
             }
         }
     }
