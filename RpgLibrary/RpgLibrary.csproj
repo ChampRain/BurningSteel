@@ -92,6 +92,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemClasses\Armor.cs" />
+    <Compile Include="ItemClasses\BaseItem.cs" />
+    <Compile Include="ItemClasses\Shield.cs" />
+    <Compile Include="ItemClasses\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

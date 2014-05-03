@@ -69,18 +69,6 @@ namespace XRpgLibrary.TileEngine
 
         public void Update(GameTime gameTime)
         {
-
-            if (InputHandler.KeyReleased(Keys.PageUp) ||
-                InputHandler.ButtonReleased(Buttons.LeftShoulder, PlayerIndex.One))
-            {
-                ZoomIn();
-            }
-            else if (InputHandler.KeyReleased(Keys.PageDown) ||
-                InputHandler.ButtonReleased(Buttons.RightShoulder, PlayerIndex.One))
-            {
-                ZoomOut();
-            }
-
             if (mode == CameraMode.Follow)
             {
                 return;
@@ -117,14 +105,14 @@ namespace XRpgLibrary.TileEngine
 
         public void LockCamera()
         {
-            position.X = MathHelper.Clamp(position.X, 0, TileMap.WidthInPixels - viewPortRectangle.Width);
-            position.Y = MathHelper.Clamp(position.Y, 0, TileMap.HeightInPixels - viewPortRectangle.Height);
+            position.X = MathHelper.Clamp(position.X, 0, TileMap.WidthInPixels * zoom - viewPortRectangle.Width);
+            position.Y = MathHelper.Clamp(position.Y, 0, TileMap.HeightInPixels * zoom - viewPortRectangle.Height);
         }
 
         public void LockToSprite(AnimatedSprite sprite)
         {
-            position.X = sprite.Position.X + sprite.Width/2 - (viewPortRectangle.Width/2);
-            position.Y = sprite.Position.Y + sprite.Height/2 - (viewPortRectangle.Height/2);
+            position.X = (sprite.Position.X + sprite.Width/2)  * zoom - (viewPortRectangle.Width/2);
+            position.Y = (sprite.Position.Y + sprite.Height/2) * zoom - (viewPortRectangle.Height/2);
 
             LockCamera();
         }
@@ -145,10 +133,13 @@ namespace XRpgLibrary.TileEngine
         {
             zoom += .25f;
 
-            if (zoom > 1f)
+            if (zoom > 1.25f)
             {
-                zoom = 1f;
+                zoom = 1.25f;
             }
+
+            Vector2 newPosition = Position * zoom;
+            SnapToPosition(newPosition);
         }
 
         public void ZoomOut()
@@ -159,6 +150,16 @@ namespace XRpgLibrary.TileEngine
             {
                 zoom = .5f;
             }
+
+            Vector2 newPosition = Position * zoom;
+            SnapToPosition(newPosition);
+        }
+
+        private void SnapToPosition(Vector2 newPosition)
+        {
+            position.X = newPosition.X - viewPortRectangle.Width / 2;
+            position.Y = newPosition.Y - viewPortRectangle.Height / 2;
+            LockCamera();
         }
     }
 }

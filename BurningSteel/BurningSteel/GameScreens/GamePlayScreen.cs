@@ -65,7 +65,7 @@ namespace BurningSteel.GameScreens
             tileSets.Add(tileSetGrass);
             tileSets.Add(tileSetTown);
 
-            MapLayer layer = new MapLayer(40,40);
+            MapLayer layer = new MapLayer(100,100);
 
             for (int y = 0; y < layer.Height; y++)
             {
@@ -76,14 +76,14 @@ namespace BurningSteel.GameScreens
                 }
             }
 
-            MapLayer splatter = new MapLayer(40, 40);
+            MapLayer splatter = new MapLayer(100, 100);
 
             Random random = new Random();
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 100; i++)
             {
-                int x = random.Next(0,40);
-                int y = random.Next(0, 40);
+                int x = random.Next(0,100);
+                int y = random.Next(0, 100);
                 int index = random.Next(2, 14);
 
                 Tile tile = new Tile(index, 0);
@@ -116,6 +116,25 @@ namespace BurningSteel.GameScreens
         {
             player.Update(gameTime);
             sprite.Update(gameTime);
+
+            if (InputHandler.KeyReleased(Keys.PageUp) ||
+                InputHandler.ButtonReleased(Buttons.LeftShoulder, PlayerIndex.One))
+            {
+                player.Camera.ZoomIn();
+                if (player.Camera.CameraMode == CameraMode.Follow)
+                {
+                    player.Camera.LockToSprite(sprite);
+                }
+            }
+            else if (InputHandler.KeyReleased(Keys.PageDown) ||
+                InputHandler.ButtonReleased(Buttons.RightShoulder, PlayerIndex.One))
+            {
+                player.Camera.ZoomOut();
+                if (player.Camera.CameraMode == CameraMode.Follow)
+                {
+                    player.Camera.LockToSprite(sprite);
+                }
+            }
 
             Vector2 motion = new Vector2();
 
