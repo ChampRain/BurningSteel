@@ -18,15 +18,42 @@ namespace RpgLibrary.ItemClasses
         {
             get { return defenseModifier; }
             protected set { defenseModifier = value; }
-        }
+        }
 
-        public Shield(string name, string type, int price, float weight, params Type[] allowableClasses) : base(name, type, price, weight, allowableClasses)
+        public Shield(string shieldName, string shieldType, int price, float weight,
+                        int defenseValue, int defenseModifier, params Type[] allowableClasses) : 
+                        base(shieldName, shieldType, price, weight, allowableClasses)
         {
+            DefenseValue = defenseValue;
+            DefenseModifier = defenseModifier;
         }
 
         public override object Clone()
         {
-            throw new NotImplementedException();
+            Type[] allowedClasses = new Type[allowableClasses.Count];
+
+            for(int i = 0; i < allowableClasses.Count; i++)
+            {
+                allowedClasses[i] = allowableClasses[i];
+            }
+
+            Shield shield = new Shield(Name, Type, Price, Weight, DefenseValue, DefenseModifier, allowedClasses);
+
+            return shield;
+        }
+
+        public override string ToString()
+        {
+            string shield = base.ToString();
+            shield += DefenseValue + ", ";
+            shield += DefenseModifier + "";
+
+            foreach (Type t in allowableClasses)
+            {
+                shield += ", " + t.Name;
+            }
+
+            return shield;
         }
     }
 }

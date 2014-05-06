@@ -5,7 +5,7 @@ namespace XRpgLibrary.SpriteClass
 {
     public enum AnimationKey { Down, Left, Right, Up }
 
-    public class Animation : ICloneable
+    public class Animation
     {
         private Rectangle[] frames;
         private int framesPerSecond;
