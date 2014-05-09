@@ -38,7 +38,7 @@ namespace RpgLibrary.ItemClasses
 
         public Weapon(string weaponName, string weaponType, int price, float weight, 
                       Hands hands, int attackValue, int attackModifier, int damageValue, 
-                      int damageModifier, params Type[] allowableClasses) : 
+                      int damageModifier, params string[] allowableClasses) : 
                             base(weaponName, weaponType, price, weight, allowableClasses)
         {
             NumberHands = hands;
@@ -50,7 +50,7 @@ namespace RpgLibrary.ItemClasses
 
         public override object Clone()
         {
-            Type[] allowedClasses = new Type[allowableClasses.Count];
+            string[] allowedClasses = new string[allowableClasses.Count];
 
             for (int i = 0; i < allowableClasses.Count; i++)
             {
@@ -73,9 +73,9 @@ namespace RpgLibrary.ItemClasses
             weapon += DamageValue + ", ";
             weapon += DamageModifier + "";
 
-            foreach (Type t in allowableClasses)
+            foreach (string t in allowableClasses)
             {
-                weapon += ", ";
+                weapon += ", " + t;
             }
 
             return weapon;

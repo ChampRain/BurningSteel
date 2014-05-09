@@ -10,14 +10,14 @@ namespace RpgLibrary.ItemClasses
 
     public abstract class BaseItem
     {
-        public List<Type> allowableClasses = new List<Type>();
+        public List<string> allowableClasses = new List<string>();
 
         private string name, type;
         private int price;
         private float weight;
         private bool equipped;
 
-        public List<Type> AllowableClasses
+        public List<string> AllowableClasses
         {
             get { return allowableClasses; }
             protected set { allowableClasses = value; }
@@ -50,7 +50,7 @@ namespace RpgLibrary.ItemClasses
             protected set { equipped = value; }
         }
 
-        public BaseItem(string name, string type, int price, float weight, params Type[] allowableClasses  )
+        public BaseItem(string name, string type, int price, float weight, params string[] allowableClasses  )
         {
             Name = name;
             Price = price;
@@ -58,7 +58,7 @@ namespace RpgLibrary.ItemClasses
             Weight = weight;
             IsEquipped = false;
 
-            foreach (Type t in allowableClasses)
+            foreach (string t in allowableClasses)
             {
                 AllowableClasses.Add(t);
             }
@@ -66,7 +66,7 @@ namespace RpgLibrary.ItemClasses
 
         public abstract object Clone();
 
-        public virtual bool CanEquip(Type characterType)
+        public virtual bool CanEquip(string characterType)
         {
             return allowableClasses.Contains(characterType);
         }
