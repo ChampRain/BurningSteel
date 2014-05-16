@@ -31,7 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.openGameMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveGameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loadGameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitGameMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@
             // 
             this.gameMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameMenu,
-            this.openGameMenu,
+            this.saveGameMenu,
             this.loadGameMenu,
             this.toolStripSeparator1,
             this.exitGameMenu});
@@ -70,30 +70,30 @@
             // newGameMenu
             // 
             this.newGameMenu.Name = "newGameMenu";
-            this.newGameMenu.Size = new System.Drawing.Size(137, 22);
+            this.newGameMenu.Size = new System.Drawing.Size(152, 22);
             this.newGameMenu.Text = "&New Game";
             // 
-            // openGameMenu
+            // saveGameMenu
             // 
-            this.openGameMenu.Name = "openGameMenu";
-            this.openGameMenu.Size = new System.Drawing.Size(137, 22);
-            this.openGameMenu.Text = "&Open Game";
+            this.saveGameMenu.Name = "saveGameMenu";
+            this.saveGameMenu.Size = new System.Drawing.Size(152, 22);
+            this.saveGameMenu.Text = "&Save Game";
             // 
             // loadGameMenu
             // 
             this.loadGameMenu.Name = "loadGameMenu";
-            this.loadGameMenu.Size = new System.Drawing.Size(137, 22);
+            this.loadGameMenu.Size = new System.Drawing.Size(152, 22);
             this.loadGameMenu.Text = "&Load Game";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitGameMenu
             // 
             this.exitGameMenu.Name = "exitGameMenu";
-            this.exitGameMenu.Size = new System.Drawing.Size(137, 22);
+            this.exitGameMenu.Size = new System.Drawing.Size(152, 22);
             this.exitGameMenu.Text = "E&xit Game";
             // 
             // classMenu
@@ -155,7 +155,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gameMenu;
         private System.Windows.Forms.ToolStripMenuItem newGameMenu;
-        private System.Windows.Forms.ToolStripMenuItem openGameMenu;
+        private System.Windows.Forms.ToolStripMenuItem saveGameMenu;
         private System.Windows.Forms.ToolStripMenuItem loadGameMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitGameMenu;

@@ -5,20 +5,44 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RpgLibrary.ItemClasses;
+using XRpgLibrary.TileEngine;
 
 namespace XRpgLibrary.WorldClasses
 {
-    public class World
+    public class World : DrawableGameComponent
     {
         ItemManager itemManager = new ItemManager();
         private Rectangle screenRect;
+        private readonly List<Level> levels = new List<Level>();
+        private int currentLevel = -1;
+
+        public List<Level> Levels
+        {
+            get { return levels; }
+        }
+
+        public int CurrentLevel
+        {
+            get { return currentLevel; }
+            set{
+                if (value < 0 || value > levels.Count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                if (levels[value] == null)
+                {
+                    throw new NullReferenceException();
+                }
+                currentLevel = value;
+            }
+        }
 
         public Rectangle ScreenRectangle
         {
             get { return screenRect; }
         }
 
-        public World(Rectangle screenRect)
+        public World(Game game, Rectangle screenRect) : base (game)
         {
             this.screenRect = screenRect;
         }
@@ -29,6 +53,11 @@ namespace XRpgLibrary.WorldClasses
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+        }
+
+        public void DrawLevel(SpriteBatch spriteBatch, Camera camera)
+        {
+            levels[currentLevel].Draw(spriteBatch, camera);
         }
     }
 }

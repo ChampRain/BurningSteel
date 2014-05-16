@@ -10,7 +10,7 @@ using RpgLibrary.CharacterClasses;
 
 namespace RpgEditor
 {
-    public partial class FormClass :FormDetails
+    public partial class FormClass : FormDetails
     {
         public FormClass()
         {
@@ -29,7 +29,7 @@ namespace RpgEditor
 
                 if (frmEntityData.EntityData != null)
                 {
-                    lbDetails.Items.Add(frmEntityData.EntityData.ToString());
+                    AddEntity(frmEntityData.EntityData);
                 }
             }
         }
@@ -40,6 +40,40 @@ namespace RpgEditor
 
         public void btnDelete_Click(object sender, EventArgs e)
         {
+        }
+
+        private void AddEntity(EntityData entityData)
+        {
+            if (FormDetails.entityDataManager.EntityData.ContainsKey(entityData.EntityName))
+            {
+                DialogResult result =
+                    MessageBox.Show(entityData.EntityName + " already exists. Do you want to overwrite it?",
+                        "Existing Character Class", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+
+                FormDetails.entityDataManager.EntityData[entityData.EntityName] = entityData;
+
+                FillListBox();
+                return;
+            }
+
+            lbDetails.Items.Add(entityData.ToString());
+
+            FormDetails.entityDataManager.EntityData.Add(entityData.EntityName, entityData);
+        }
+
+        public void FillListBox()
+        {
+            lbDetails.Items.Clear();
+
+            foreach (string s in FormDetails.entityDataManager.EntityData.Keys)
+            {
+                lbDetails.Items.Add(FormDetails.entityDataManager.EntityData[s]);
+            }
         }
     }
 }

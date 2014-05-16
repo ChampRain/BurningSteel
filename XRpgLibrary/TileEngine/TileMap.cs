@@ -48,16 +48,28 @@ namespace XRpgLibrary.TileEngine
 
         public void Draw(SpriteBatch spriteBatch, Camera camera)
         {
+            Point cameraPoint = Engine.VectorToCell(camera.Position*(1/camera.Zoom));
+            Point viewPoint = Engine.VectorToCell(new Vector2(
+                                    (camera.Position.X + camera.ViewPortRectangle.Width)*(1/camera.Zoom),
+                                     camera.Position.Y + camera.ViewPortRectangle.Height)*(1/camera.Zoom));
+            Point min = new Point();
+            Point max = new Point();
+
+            min.X = Math.Max(0, cameraPoint.X - 1);
+            min.Y = Math.Max(0, cameraPoint.Y - 1);
+            max.X = Math.Max(viewPoint.X + 1, mapWidth);
+            max.Y = Math.Max(viewPoint.Y + 1, mapHeight);
+
             Rectangle destination = new Rectangle(0,0,Engine.TileWidth, Engine.TileHeight);
             Tile tile;
 
             foreach (MapLayer mapLayer in mapLayers)
             {
-                for (int y = 0; y < mapLayer.Height; y++)
+                for (int y = min.Y; y < max.Y; y++)
                 {
                     destination.Y = y * Engine.TileHeight;
 
-                    for (int x = 0; x < mapLayer.Width; x++)
+                    for (int x = min.X; x < max.X; x++)
                     {
                         tile = mapLayer.GetTile(x, y);
 

@@ -31,5 +31,15 @@ namespace RpgEditor
         public void btnDelete_Click(object sender, EventArgs e)
         {
         }
+
+        public void FillListBox()
+        {
+            lbDetails.Items.Clear();
+
+            foreach (string s in FormDetails.itemDataManager.ShieldData.Keys)
+            {
+                lbDetails.Items.Add(FormDetails.itemDataManager.ShieldData[s]);
+            }
+        }
     }
 }

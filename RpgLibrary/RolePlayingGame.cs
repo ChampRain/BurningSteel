@@ -21,6 +21,11 @@ namespace RpgLibrary
             set { description = value; }
         }
 
+        public RolePlayingGame()
+        {
+            
+        }
+
         public RolePlayingGame(string name, string description)
         {
             Name = name;

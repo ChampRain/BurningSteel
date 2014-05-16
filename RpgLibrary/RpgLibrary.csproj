@@ -97,10 +97,14 @@
     <Compile Include="CharacterClasses\EntityData.cs" />
     <Compile Include="CharacterClasses\EntityDataManager.cs" />
     <Compile Include="ItemClasses\Armor.cs" />
+    <Compile Include="ItemClasses\ArmorData.cs" />
     <Compile Include="ItemClasses\BaseItem.cs" />
+    <Compile Include="ItemClasses\ItemDataManager.cs" />
     <Compile Include="ItemClasses\ItemManager.cs" />
     <Compile Include="ItemClasses\Shield.cs" />
+    <Compile Include="ItemClasses\ShieldData.cs" />
     <Compile Include="ItemClasses\Weapon.cs" />
+    <Compile Include="ItemClasses\WeaponData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolePlayingGame.cs" />
   </ItemGroup>

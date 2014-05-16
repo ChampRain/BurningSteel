@@ -15,6 +15,13 @@ namespace XRpgLibrary.Controls
         private int selectedControl = 0;
         private static SpriteFont spriteFont;
         public EventHandler FocusChanged;
+        private bool acceptInput = true;
+
+        public bool AcceptInput
+        {
+            get { return acceptInput; }
+            set { acceptInput = value; }
+        }
 
         public static SpriteFont SpriteFont
         {
@@ -53,6 +60,11 @@ namespace XRpgLibrary.Controls
                 {
                     c.HandleInput(playerIndex);
                 }
+            }
+
+            if (!acceptInput)
+            {
+                return;
             }
 
             if (InputHandler.ButtonPressed(Buttons.LeftThumbstickUp, playerIndex) ||

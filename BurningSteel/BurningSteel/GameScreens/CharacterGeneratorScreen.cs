@@ -119,8 +119,10 @@ namespace BurningSteel.GameScreens
         {
             InputHandler.Flush();
 
-            stateManager.PopState();
-            stateManager.PushState(gameRef.gamePlayScreen);
+            stateManager.ChangeState(gameRef.gamePlayScreen);
+
+            CreatePlayer();
+            CreateWorld();
         }
 
         public void LoadImages()
