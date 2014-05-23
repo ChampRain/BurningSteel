@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace XRpgLibrary.Controls
 {
-    class ListBox : Control
+    public class ListBox : Control
     {
         public event EventHandler SelectionChanged;
         public event EventHandler Enter;

@@ -37,7 +37,7 @@
             this.mtbPrice = new System.Windows.Forms.MaskedTextBox();
             this.tbType = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.lbSelectedClasses = new System.Windows.Forms.ListBox();
+            this.lbAllowedClasses = new System.Windows.Forms.ListBox();
             this.lbAllClasses = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -127,13 +127,13 @@
             this.tbName.Size = new System.Drawing.Size(100, 20);
             this.tbName.TabIndex = 40;
             // 
-            // lbSelectedClasses
+            // lbAllowedClasses
             // 
-            this.lbSelectedClasses.FormattingEnabled = true;
-            this.lbSelectedClasses.Location = new System.Drawing.Point(472, 49);
-            this.lbSelectedClasses.Name = "lbSelectedClasses";
-            this.lbSelectedClasses.Size = new System.Drawing.Size(120, 147);
-            this.lbSelectedClasses.TabIndex = 39;
+            this.lbAllowedClasses.FormattingEnabled = true;
+            this.lbAllowedClasses.Location = new System.Drawing.Point(472, 49);
+            this.lbAllowedClasses.Name = "lbAllowedClasses";
+            this.lbAllowedClasses.Size = new System.Drawing.Size(120, 147);
+            this.lbAllowedClasses.TabIndex = 39;
             // 
             // lbAllClasses
             // 
@@ -244,6 +244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 260);
+            this.ControlBox = false;
             this.Controls.Add(this.cbLocations);
             this.Controls.Add(this.nudWeight);
             this.Controls.Add(this.btnCancel);
@@ -255,7 +256,7 @@
             this.Controls.Add(this.mtbPrice);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbSelectedClasses);
+            this.Controls.Add(this.lbAllowedClasses);
             this.Controls.Add(this.lbAllClasses);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -268,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ArmorDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ArmorDetails";
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
             this.ResumeLayout(false);
@@ -286,7 +288,7 @@
         private System.Windows.Forms.MaskedTextBox mtbPrice;
         private System.Windows.Forms.TextBox tbType;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.ListBox lbSelectedClasses;
+        private System.Windows.Forms.ListBox lbAllowedClasses;
         private System.Windows.Forms.ListBox lbAllClasses;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;

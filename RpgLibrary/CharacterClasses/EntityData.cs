@@ -33,16 +33,16 @@ namespace RpgLibrary.CharacterClasses
 
         public override string ToString()
         {
-            string toString = "Name = " + EntityName + ", ";
-            toString += "Strength = " + Strength + ", ";
-            toString += "Dexterity = " + Dexterity + ", ";
-            toString += "Cunning = " + Cunning + ", ";
-            toString += "Willpower = " + Willpower + ", ";
-            toString += "Magic = " + Magic + ", ";
-            toString += "Constitution = " + Constitution + ", ";
-            toString += "Health Formula = " + HealthFormula + ", ";
-            toString += "Magic Formula = " + MagicFormula + ", ";
-            toString += "Stamina Formula = " + StaminaFormula;
+            string toString = EntityName + ", ";
+            toString += Strength + ", ";
+            toString += Dexterity + ", ";
+            toString += Cunning + ", ";
+            toString += Willpower + ", ";
+            toString += Magic + ", ";
+            toString += Constitution + ", ";
+            toString += HealthFormula + ", ";
+            toString += StaminaFormula + ", ";
+            toString += MagicFormula;
 
             return toString;
         }

@@ -13,5 +13,18 @@ namespace RpgLibrary.ItemClasses
         public bool equipped;
         public string[] allowableClasses;
         public Hands hands;
+
+        public override string ToString()
+        {
+            string weapon = name + ", " + type + ", " + price + ", " + weight + ", " + hands + ", " +
+                           attackValue + ", " + attackModifier + ", " + damageValue + ", " + damageModifier;
+
+            foreach (string s in allowableClasses)
+            {
+                weapon += ", " + s;
+            }
+
+            return weapon;
+        }
     }
 }

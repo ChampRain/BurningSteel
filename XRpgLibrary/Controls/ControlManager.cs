@@ -91,7 +91,7 @@ namespace XRpgLibrary.Controls
             }
         }
 
-        public void NextControl(int i = 0)
+        public void NextControl()
         {
             if (Count == 0)
             {
@@ -122,11 +122,6 @@ namespace XRpgLibrary.Controls
             } while (currentControl != selectedControl);
 
             this[selectedControl].HasFocus = true;
-
-            if (i == 1)
-            {
-                
-            }
         }
 
         public void PreviousControl()

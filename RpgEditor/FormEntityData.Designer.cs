@@ -251,6 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(325, 395);
+            this.ControlBox = false;
             this.Controls.Add(this.mtbConstitution);
             this.Controls.Add(this.mtbMagic);
             this.Controls.Add(this.mtbWillpower);
@@ -275,6 +276,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormEntityData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormEntityData";
             this.ResumeLayout(false);
             this.PerformLayout();
