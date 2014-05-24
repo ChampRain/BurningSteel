@@ -35,11 +35,12 @@
             this.loadGameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitGameMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.classToolMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.classMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.weaponMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.armorMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.shieldMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameMenu,
-            this.classMenu,
+            this.classToolMenu,
             this.itemMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -70,67 +71,76 @@
             // newGameMenu
             // 
             this.newGameMenu.Name = "newGameMenu";
-            this.newGameMenu.Size = new System.Drawing.Size(152, 22);
+            this.newGameMenu.Size = new System.Drawing.Size(134, 22);
             this.newGameMenu.Text = "&New Game";
             // 
             // saveGameMenu
             // 
             this.saveGameMenu.Name = "saveGameMenu";
-            this.saveGameMenu.Size = new System.Drawing.Size(152, 22);
+            this.saveGameMenu.Size = new System.Drawing.Size(134, 22);
             this.saveGameMenu.Text = "&Save Game";
             // 
             // loadGameMenu
             // 
             this.loadGameMenu.Name = "loadGameMenu";
-            this.loadGameMenu.Size = new System.Drawing.Size(152, 22);
+            this.loadGameMenu.Size = new System.Drawing.Size(134, 22);
             this.loadGameMenu.Text = "&Load Game";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // exitGameMenu
             // 
             this.exitGameMenu.Name = "exitGameMenu";
-            this.exitGameMenu.Size = new System.Drawing.Size(152, 22);
+            this.exitGameMenu.Size = new System.Drawing.Size(134, 22);
             this.exitGameMenu.Text = "E&xit Game";
+            // 
+            // classToolMenu
+            // 
+            this.classToolMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.classMenu});
+            this.classToolMenu.Enabled = false;
+            this.classToolMenu.Name = "classToolMenu";
+            this.classToolMenu.Size = new System.Drawing.Size(57, 20);
+            this.classToolMenu.Text = "&Classes";
             // 
             // classMenu
             // 
-            this.classMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.classMenu.Name = "classMenu";
+            this.classMenu.Size = new System.Drawing.Size(152, 22);
+            this.classMenu.Text = "C&haracters";
+            this.classMenu.Click += new System.EventHandler(this.classMenu_Click);
+            // 
+            // itemMenu
+            // 
+            this.itemMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.weaponMenu,
             this.armorMenu,
             this.shieldMenu});
-            this.classMenu.Enabled = false;
-            this.classMenu.Name = "classMenu";
-            this.classMenu.Size = new System.Drawing.Size(57, 20);
-            this.classMenu.Text = "&Classes";
+            this.itemMenu.Enabled = false;
+            this.itemMenu.Name = "itemMenu";
+            this.itemMenu.Size = new System.Drawing.Size(43, 20);
+            this.itemMenu.Text = "&Item";
             // 
             // weaponMenu
             // 
             this.weaponMenu.Name = "weaponMenu";
             this.weaponMenu.Size = new System.Drawing.Size(123, 22);
-            this.weaponMenu.Text = "Weapons";
+            this.weaponMenu.Text = "&Weapons";
             // 
             // armorMenu
             // 
             this.armorMenu.Name = "armorMenu";
             this.armorMenu.Size = new System.Drawing.Size(123, 22);
-            this.armorMenu.Text = "Armor";
+            this.armorMenu.Text = "&Armor";
             // 
             // shieldMenu
             // 
             this.shieldMenu.Name = "shieldMenu";
             this.shieldMenu.Size = new System.Drawing.Size(123, 22);
-            this.shieldMenu.Text = "Shields";
-            // 
-            // itemMenu
-            // 
-            this.itemMenu.Enabled = false;
-            this.itemMenu.Name = "itemMenu";
-            this.itemMenu.Size = new System.Drawing.Size(43, 20);
-            this.itemMenu.Text = "&Item";
+            this.shieldMenu.Text = "&Shields";
             // 
             // FormMain
             // 
@@ -159,11 +169,12 @@
         private System.Windows.Forms.ToolStripMenuItem loadGameMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitGameMenu;
+        private System.Windows.Forms.ToolStripMenuItem classToolMenu;
         private System.Windows.Forms.ToolStripMenuItem classMenu;
+        private System.Windows.Forms.ToolStripMenuItem itemMenu;
         private System.Windows.Forms.ToolStripMenuItem weaponMenu;
         private System.Windows.Forms.ToolStripMenuItem armorMenu;
         private System.Windows.Forms.ToolStripMenuItem shieldMenu;
-        private System.Windows.Forms.ToolStripMenuItem itemMenu;
     }
 }
 

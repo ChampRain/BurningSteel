@@ -12,9 +12,9 @@ namespace RpgEditor
 {
     public partial class ArmorDetails : Form
     {
-        private Armor armor;
+        private ArmorData armor;
 
-        public Armor Armor
+        public ArmorData Armor
         {
             get { return armor; }
             set { armor = value; }
@@ -57,13 +57,13 @@ namespace RpgEditor
 
             if (armor != null)
             {
-                tbName.Text = armor.Name;
-                tbType.Text = armor.Type;
-                mtbPrice.Text = armor.Price.ToString();
-                nudWeight.Value = (Decimal) armor.Weight;
-                cbLocations.SelectedIndex = (int) armor.Location;
-                mtbDefenseVal.Text = armor.DefenseValue.ToString();
-                mtbDefenseMod.Text = armor.DefenseModifier.ToString();
+                tbName.Text = armor.name;
+                tbType.Text = armor.type;
+                mtbPrice.Text = armor.price.ToString();
+                nudWeight.Value = (Decimal) armor.weight;
+                cbLocations.SelectedIndex = (int) armor.ArmorLocation;
+                mtbDefenseVal.Text = armor.defenseValue.ToString();
+                mtbDefenseMod.Text = armor.defenseModifier.ToString();
 
                 foreach (string s in armor.allowableClasses)
                 {
@@ -97,11 +97,60 @@ namespace RpgEditor
 
         public void Ok_Click(object sender, EventArgs e)
         {
+            int price = 0, defVal = 0, defMod = 0;
+            float weight = 0f;
+
+            if (string.IsNullOrEmpty(tbName.Text))
+            {
+                MessageBox.Show("You must enter a name for the item");
+                return;
+            }
+
+            if (!int.TryParse(mtbPrice.Text, out price))
+            {
+                MessageBox.Show("Price must be a value greater than '1'");
+                return;
+            }
+
+            weight = (float) nudWeight.Value;
+
+            if (!int.TryParse(mtbDefenseVal.Text, out defVal))
+            {
+                MessageBox.Show("Defense Value must be greater than '1'");
+                return;
+            }
+
+            if (!int.TryParse(mtbDefenseMod.Text, out defMod))
+            {
+                MessageBox.Show("Defense Modifier must be greater than '1'");
+                return;
+            }
+
+            List<string> allowedClasses = new List<string>();
+
+            foreach (object o in lbAllowedClasses.Items)
+            {
+                allowedClasses.Add(o.ToString());
+            }
+
+            armor = new ArmorData();
+            armor.name = tbName.Text;
+            armor.type = tbType.Text;
+            armor.price = price;
+            armor.weight = weight;
+            armor.ArmorLocation = (ArmorLocation) cbLocations.SelectedIndex;
+            armor.defenseValue = defVal;
+            armor.defenseModifier = defMod;
+            armor.allowableClasses = allowedClasses.ToArray();
+
+            this.FormClosing -= new FormClosingEventHandler(Form_Close);
             this.Close();
         }
 
         public void Cancel_Click(object sender, EventArgs e)
         {
+            armor = null;
+            this.FormClosing -= new FormClosingEventHandler(Form_Close);
             this.Close();
         }
     }

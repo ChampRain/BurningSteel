@@ -71,7 +71,7 @@ namespace RpgEditor
                             Directory.CreateDirectory(itemPath + @"\Shield");
 
                             rpg = newGame.RolePlayingGame;
-                            XnaSerializer.Serialize<RolePlayingGame>(gamePath + @"Game.xml", rpg);
+                            XnaSerializer.Serialize<RolePlayingGame>(gamePath + @"\Game.xml", rpg);
                         }
                         catch (Exception ex)
                         {
@@ -79,7 +79,7 @@ namespace RpgEditor
                             return;
                         }
 
-                        classMenu.Enabled = true;
+                        classToolMenu.Enabled = true;
                         itemMenu.Enabled = true;
                     }   
                 }
@@ -145,9 +145,9 @@ namespace RpgEditor
 
         private void OpenGame(string path)
         {
-            gamePath = Path.Combine(path + "Game");
-            classPath = Path.Combine(path + "Classes");
-            itemPath = Path.Combine(path + "Items");
+            gamePath = Path.Combine(path + "\\Game");
+            classPath = Path.Combine(path + "\\Game\\Classes");
+            itemPath = Path.Combine(path + "\\Game\\Items");
 
             rpg = XnaSerializer.Deserialize<RolePlayingGame>(gamePath + @"\Game.xml");
 
@@ -213,7 +213,7 @@ namespace RpgEditor
 
             shieldForm.FillListBox();
 
-            classMenu.Enabled = true;
+            classToolMenu.Enabled = true;
             itemMenu.Enabled = true;
         }
 
@@ -224,7 +224,7 @@ namespace RpgEditor
                 classForm = new FormClass();
                 classForm.MdiParent = this;
             }
-
+         
             classForm.Show();
             classForm.BringToFront();
         }

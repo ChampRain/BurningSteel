@@ -47,10 +47,10 @@ namespace RpgEditor
 
                 using (FormEntityData frmEntityData = new FormEntityData())
                 {
-                    frmEntityData.EntityData.EntityName = entity;
+                    frmEntityData.EntityData = data;
                     frmEntityData.ShowDialog();
 
-                    if (frmEntityData.EntityData != null)
+                    if (frmEntityData.EntityData == null)
                     {
                         return;
                     }
@@ -64,7 +64,7 @@ namespace RpgEditor
                     newData = frmEntityData.EntityData;
                 }
 
-                DialogResult result = MessageBox.Show("Name has changed. Do you want to add a new entry?", "New Entry");
+                DialogResult result = MessageBox.Show("Name has changed. Do you want to add a new entry?", "New Entry", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.No)
                 {
@@ -137,6 +137,14 @@ namespace RpgEditor
             foreach (string s in FormDetails.entityDataManager.EntityData.Keys)
             {
                 lbDetails.Items.Add(FormDetails.entityDataManager.EntityData[s]);
+            }
+        }
+
+        private void Form_Close(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
             }
         }
     }

@@ -38,6 +38,7 @@
             this.Name = "FormShield";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shield Designer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Close);
             this.ResumeLayout(false);
 
         }

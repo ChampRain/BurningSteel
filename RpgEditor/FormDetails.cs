@@ -87,41 +87,59 @@ namespace RpgEditor
 
         public static void ReadEntityData()
         {
-            entityDataManager = new EntityDataManager();
-
-            string[] fileNames = Directory.GetFiles(FormMain.classPath + ".xml");
-
-            foreach (string s in fileNames)
+            if (Directory.Exists(FormMain.classPath))
             {
-                EntityData entityData = XnaSerializer.Deserialize<EntityData>(s);
-                entityDataManager.EntityData.Add(entityData.EntityName, entityData);
+                entityDataManager = new EntityDataManager();
+
+                string[] fileNames = Directory.GetFiles(FormMain.classPath);
+
+                if (fileNames.Length != 0)
+                {
+                    foreach (string s in fileNames)
+                    {
+                        EntityData entityData = XnaSerializer.Deserialize<EntityData>(s);
+                        entityDataManager.EntityData.Add(entityData.EntityName, entityData);
+                    }
+                }
             }
         }
 
         public static void ReadItemData()
         {
-            itemDataManager = new ItemDataManager();
-
-            string[] weaponNames = Directory.GetFiles(Path.Combine(FormMain.itemPath,"Weapon", ".xml"));
-            string[] armorNames = Directory.GetFiles(Path.Combine(FormMain.itemPath, "Armor", ".xml"));
-            string[] shieldNames = Directory.GetFiles(Path.Combine(FormMain.itemPath, "Shield", ".xml"));
-
-            foreach (string s in weaponNames)
+            if (Directory.Exists(FormMain.itemPath))
             {
-                WeaponData weaponData = XnaSerializer.Deserialize<WeaponData>(s);
-                itemDataManager.WeaponData.Add(weaponData.name, weaponData);
-            }
+                itemDataManager = new ItemDataManager();
 
-            foreach (string s in armorNames)
-            {
-                ArmorData armorData = XnaSerializer.Deserialize<ArmorData>(s);
-                itemDataManager.ArmorData.Add(armorData.name, armorData);
-            }
+                string[] weaponNames = Directory.GetFiles(Path.Combine(FormMain.itemPath, "Weapon"));
+                string[] armorNames = Directory.GetFiles(Path.Combine(FormMain.itemPath, "Armor"));
+                string[] shieldNames = Directory.GetFiles(Path.Combine(FormMain.itemPath, "Shield"));
 
-            foreach (string s in shieldNames)
-            {
-                ShieldData shieldData = XnaSerializer.Deserialize<ShieldData>(s);
-                itemDataManager.ShieldData.Add(shieldData.name, shieldData);
+                if (weaponNames.Length != 0)
+                {
+                    foreach (string s in weaponNames)
+                    {
+                        WeaponData weaponData = XnaSerializer.Deserialize<WeaponData>(s);
+                        itemDataManager.WeaponData.Add(weaponData.name, weaponData);
+                    }
+                }
+
+                if (armorNames.Length != 0)
+                {
+                    foreach (string s in armorNames)
+                    {
+                        ArmorData armorData = XnaSerializer.Deserialize<ArmorData>(s);
+                        itemDataManager.ArmorData.Add(armorData.name, armorData);
+                    }
+                }
+
+                if (shieldNames.Length != 0)
+                {
+                    foreach (string s in shieldNames)
+                    {
+                        ShieldData shieldData = XnaSerializer.Deserialize<ShieldData>(s);
+                        itemDataManager.ShieldData.Add(shieldData.name, shieldData);
+                    }
+                }
             }
         }
     }

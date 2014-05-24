@@ -38,6 +38,7 @@
             this.Name = "FormClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Character Designer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Close);
             this.ResumeLayout(false);
 
         }

@@ -269,7 +269,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ArmorDetails";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArmorDetails";
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
             this.ResumeLayout(false);
