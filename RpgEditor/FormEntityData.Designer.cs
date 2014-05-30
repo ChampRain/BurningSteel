@@ -147,28 +147,28 @@
             this.tbName.Location = new System.Drawing.Point(99, 29);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(156, 20);
-            this.tbName.TabIndex = 10;
+            this.tbName.TabIndex = 1;
             // 
             // tbHealthFormula
             // 
             this.tbHealthFormula.Location = new System.Drawing.Point(98, 253);
             this.tbHealthFormula.Name = "tbHealthFormula";
             this.tbHealthFormula.Size = new System.Drawing.Size(157, 20);
-            this.tbHealthFormula.TabIndex = 17;
+            this.tbHealthFormula.TabIndex = 8;
             // 
             // tbStaminaFormula
             // 
             this.tbStaminaFormula.Location = new System.Drawing.Point(98, 285);
             this.tbStaminaFormula.Name = "tbStaminaFormula";
             this.tbStaminaFormula.Size = new System.Drawing.Size(157, 20);
-            this.tbStaminaFormula.TabIndex = 18;
+            this.tbStaminaFormula.TabIndex = 9;
             // 
             // tbManaFormula
             // 
             this.tbManaFormula.Location = new System.Drawing.Point(98, 317);
             this.tbManaFormula.Name = "tbManaFormula";
             this.tbManaFormula.Size = new System.Drawing.Size(157, 20);
-            this.tbManaFormula.TabIndex = 19;
+            this.tbManaFormula.TabIndex = 10;
             // 
             // btnOK
             // 
@@ -176,7 +176,7 @@
             this.btnOK.Location = new System.Drawing.Point(58, 354);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(97, 23);
-            this.btnOK.TabIndex = 20;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -186,7 +186,7 @@
             this.btnCancel.Location = new System.Drawing.Point(172, 354);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 23);
-            this.btnCancel.TabIndex = 21;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -196,7 +196,7 @@
             this.mtbStrength.Mask = "00";
             this.mtbStrength.Name = "mtbStrength";
             this.mtbStrength.Size = new System.Drawing.Size(100, 20);
-            this.mtbStrength.TabIndex = 22;
+            this.mtbStrength.TabIndex = 2;
             this.mtbStrength.Text = "10";
             // 
             // mtbDexterity
@@ -205,7 +205,7 @@
             this.mtbDexterity.Mask = "00";
             this.mtbDexterity.Name = "mtbDexterity";
             this.mtbDexterity.Size = new System.Drawing.Size(100, 20);
-            this.mtbDexterity.TabIndex = 22;
+            this.mtbDexterity.TabIndex = 3;
             this.mtbDexterity.Text = "10";
             // 
             // mtbCunning
@@ -214,7 +214,7 @@
             this.mtbCunning.Mask = "00";
             this.mtbCunning.Name = "mtbCunning";
             this.mtbCunning.Size = new System.Drawing.Size(100, 20);
-            this.mtbCunning.TabIndex = 22;
+            this.mtbCunning.TabIndex = 4;
             this.mtbCunning.Text = "10";
             // 
             // mtbWillpower
@@ -223,7 +223,7 @@
             this.mtbWillpower.Mask = "00";
             this.mtbWillpower.Name = "mtbWillpower";
             this.mtbWillpower.Size = new System.Drawing.Size(100, 20);
-            this.mtbWillpower.TabIndex = 22;
+            this.mtbWillpower.TabIndex = 5;
             this.mtbWillpower.Text = "10";
             // 
             // mtbMagic
@@ -232,7 +232,7 @@
             this.mtbMagic.Mask = "00";
             this.mtbMagic.Name = "mtbMagic";
             this.mtbMagic.Size = new System.Drawing.Size(100, 20);
-            this.mtbMagic.TabIndex = 22;
+            this.mtbMagic.TabIndex = 6;
             this.mtbMagic.Text = "10";
             // 
             // mtbConstitution
@@ -241,7 +241,7 @@
             this.mtbConstitution.Mask = "00";
             this.mtbConstitution.Name = "mtbConstitution";
             this.mtbConstitution.Size = new System.Drawing.Size(100, 20);
-            this.mtbConstitution.TabIndex = 22;
+            this.mtbConstitution.TabIndex = 7;
             this.mtbConstitution.Text = "10";
             // 
             // FormEntityData

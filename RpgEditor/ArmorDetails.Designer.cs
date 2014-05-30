@@ -58,7 +58,7 @@
             this.btnCancel.Location = new System.Drawing.Point(426, 213);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 23);
-            this.btnCancel.TabIndex = 50;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -67,7 +67,7 @@
             this.btnOk.Location = new System.Drawing.Point(306, 213);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(105, 23);
-            this.btnOk.TabIndex = 49;
+            this.btnOk.TabIndex = 12;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
@@ -76,7 +76,7 @@
             this.btnRemove.Location = new System.Drawing.Point(381, 134);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 48;
+            this.btnRemove.TabIndex = 11;
             this.btnRemove.Text = "<<";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
@@ -85,7 +85,7 @@
             this.btnAdd.Location = new System.Drawing.Point(381, 93);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 47;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = ">>";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +95,7 @@
             this.mtbDefenseMod.Mask = "000";
             this.mtbDefenseMod.Name = "mtbDefenseMod";
             this.mtbDefenseMod.Size = new System.Drawing.Size(100, 20);
-            this.mtbDefenseMod.TabIndex = 44;
+            this.mtbDefenseMod.TabIndex = 7;
             // 
             // mtbDefenseVal
             // 
@@ -103,7 +103,7 @@
             this.mtbDefenseVal.Mask = "000";
             this.mtbDefenseVal.Name = "mtbDefenseVal";
             this.mtbDefenseVal.Size = new System.Drawing.Size(100, 20);
-            this.mtbDefenseVal.TabIndex = 43;
+            this.mtbDefenseVal.TabIndex = 6;
             // 
             // mtbPrice
             // 
@@ -111,21 +111,21 @@
             this.mtbPrice.Mask = "00000";
             this.mtbPrice.Name = "mtbPrice";
             this.mtbPrice.Size = new System.Drawing.Size(100, 20);
-            this.mtbPrice.TabIndex = 42;
+            this.mtbPrice.TabIndex = 3;
             // 
             // tbType
             // 
             this.tbType.Location = new System.Drawing.Point(120, 56);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(100, 20);
-            this.tbType.TabIndex = 41;
+            this.tbType.TabIndex = 2;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(120, 31);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
-            this.tbName.TabIndex = 40;
+            this.tbName.TabIndex = 1;
             // 
             // lbAllowedClasses
             // 
@@ -133,7 +133,7 @@
             this.lbAllowedClasses.Location = new System.Drawing.Point(472, 49);
             this.lbAllowedClasses.Name = "lbAllowedClasses";
             this.lbAllowedClasses.Size = new System.Drawing.Size(120, 147);
-            this.lbAllowedClasses.TabIndex = 39;
+            this.lbAllowedClasses.TabIndex = 9;
             // 
             // lbAllClasses
             // 
@@ -141,7 +141,7 @@
             this.lbAllClasses.Location = new System.Drawing.Point(245, 49);
             this.lbAllClasses.Name = "lbAllClasses";
             this.lbAllClasses.Size = new System.Drawing.Size(120, 147);
-            this.lbAllClasses.TabIndex = 38;
+            this.lbAllClasses.TabIndex = 8;
             // 
             // label11
             // 
@@ -220,7 +220,7 @@
             this.nudWeight.Location = new System.Drawing.Point(120, 103);
             this.nudWeight.Name = "nudWeight";
             this.nudWeight.Size = new System.Drawing.Size(100, 20);
-            this.nudWeight.TabIndex = 51;
+            this.nudWeight.TabIndex = 4;
             // 
             // label5
             // 
@@ -237,7 +237,7 @@
             this.cbLocations.Location = new System.Drawing.Point(120, 127);
             this.cbLocations.Name = "cbLocations";
             this.cbLocations.Size = new System.Drawing.Size(100, 21);
-            this.cbLocations.TabIndex = 52;
+            this.cbLocations.TabIndex = 5;
             // 
             // ArmorDetails
             // 

@@ -162,7 +162,7 @@
             this.lbAllClasses.Location = new System.Drawing.Point(245, 49);
             this.lbAllClasses.Name = "lbAllClasses";
             this.lbAllClasses.Size = new System.Drawing.Size(120, 147);
-            this.lbAllClasses.TabIndex = 11;
+            this.lbAllClasses.TabIndex = 10;
             // 
             // lbSelectedClasses
             // 
@@ -170,21 +170,21 @@
             this.lbSelectedClasses.Location = new System.Drawing.Point(472, 49);
             this.lbSelectedClasses.Name = "lbSelectedClasses";
             this.lbSelectedClasses.Size = new System.Drawing.Size(120, 147);
-            this.lbSelectedClasses.TabIndex = 12;
+            this.lbSelectedClasses.TabIndex = 11;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(120, 31);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
-            this.tbName.TabIndex = 13;
+            this.tbName.TabIndex = 1;
             // 
             // tbType
             // 
             this.tbType.Location = new System.Drawing.Point(120, 56);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(100, 20);
-            this.tbType.TabIndex = 14;
+            this.tbType.TabIndex = 2;
             // 
             // mtbPrice
             // 
@@ -192,7 +192,7 @@
             this.mtbPrice.Mask = "00000";
             this.mtbPrice.Name = "mtbPrice";
             this.mtbPrice.Size = new System.Drawing.Size(100, 20);
-            this.mtbPrice.TabIndex = 15;
+            this.mtbPrice.TabIndex = 3;
             // 
             // mtbAttackVal
             // 
@@ -200,7 +200,7 @@
             this.mtbAttackVal.Mask = "000";
             this.mtbAttackVal.Name = "mtbAttackVal";
             this.mtbAttackVal.Size = new System.Drawing.Size(100, 20);
-            this.mtbAttackVal.TabIndex = 16;
+            this.mtbAttackVal.TabIndex = 6;
             // 
             // mtbAttackMod
             // 
@@ -208,7 +208,7 @@
             this.mtbAttackMod.Mask = "000";
             this.mtbAttackMod.Name = "mtbAttackMod";
             this.mtbAttackMod.Size = new System.Drawing.Size(100, 20);
-            this.mtbAttackMod.TabIndex = 17;
+            this.mtbAttackMod.TabIndex = 7;
             // 
             // mtbDamageVal
             // 
@@ -216,7 +216,7 @@
             this.mtbDamageVal.Mask = "000";
             this.mtbDamageVal.Name = "mtbDamageVal";
             this.mtbDamageVal.Size = new System.Drawing.Size(100, 20);
-            this.mtbDamageVal.TabIndex = 18;
+            this.mtbDamageVal.TabIndex = 8;
             // 
             // mtbDamageMod
             // 
@@ -224,14 +224,14 @@
             this.mtbDamageMod.Mask = "000";
             this.mtbDamageMod.Name = "mtbDamageMod";
             this.mtbDamageMod.Size = new System.Drawing.Size(100, 20);
-            this.mtbDamageMod.TabIndex = 19;
+            this.mtbDamageMod.TabIndex = 9;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(381, 93);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 21;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = ">>";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -240,7 +240,7 @@
             this.btnRemove.Location = new System.Drawing.Point(381, 134);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 22;
+            this.btnRemove.TabIndex = 13;
             this.btnRemove.Text = "<<";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
@@ -249,7 +249,7 @@
             this.btnOk.Location = new System.Drawing.Point(306, 213);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(105, 23);
-            this.btnOk.TabIndex = 23;
+            this.btnOk.TabIndex = 14;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
@@ -258,7 +258,7 @@
             this.btnCancel.Location = new System.Drawing.Point(426, 213);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 23);
-            this.btnCancel.TabIndex = 24;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -267,7 +267,7 @@
             this.nudWeight.Location = new System.Drawing.Point(120, 103);
             this.nudWeight.Name = "nudWeight";
             this.nudWeight.Size = new System.Drawing.Size(100, 20);
-            this.nudWeight.TabIndex = 25;
+            this.nudWeight.TabIndex = 4;
             // 
             // cbHands
             // 
@@ -275,7 +275,7 @@
             this.cbHands.Location = new System.Drawing.Point(120, 127);
             this.cbHands.Name = "cbHands";
             this.cbHands.Size = new System.Drawing.Size(100, 21);
-            this.cbHands.TabIndex = 26;
+            this.cbHands.TabIndex = 5;
             // 
             // WeaponDetails
             // 

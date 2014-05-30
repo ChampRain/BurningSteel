@@ -38,7 +38,7 @@ namespace RpgEditor
         {
             if (lbDetails.SelectedItem != null)
             {
-                string detail = (string)lbDetails.SelectedItem;
+                string detail = Convert.ToString(lbDetails.SelectedItem);
                 string[] parts = detail.Split(',');
                 string entity = (string)parts[0].Trim();
 
@@ -88,7 +88,7 @@ namespace RpgEditor
         {
             if (lbDetails.SelectedItem != null)
             {
-                string detail = (string)lbDetails.SelectedItem;
+                string detail = Convert.ToString(lbDetails.SelectedItem);
                 string[] parts = detail.Split(',');
                 string entity = parts[0].Trim();
 
