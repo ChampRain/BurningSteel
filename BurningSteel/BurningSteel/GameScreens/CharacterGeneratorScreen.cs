@@ -6,8 +6,10 @@ using System.Text;
 using BurningSteel.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RpgLibrary.ItemClasses;
 using XRpgLibrary;
 using XRpgLibrary.Controls;
+using XRpgLibrary.ItemClasses;
 using XRpgLibrary.SpriteClass;
 using XRpgLibrary.TileEngine;
 using XRpgLibrary.WorldClasses;
@@ -21,6 +23,7 @@ namespace BurningSteel.GameScreens
         private PictureBox backgroundImage, characterBox;
 
         private Texture2D[,] characterImages;
+        private Texture2D containers;
 
         private string[] genderItems = {"Male", "Female"};
         private string[] classItems = {"Fighter", "Wizard", "Rogue", "Priest"};
@@ -50,7 +53,8 @@ namespace BurningSteel.GameScreens
             base.LoadContent();
 
             LoadImages();
-            CreateControls();    
+            CreateControls();
+            containers = Game.Content.Load<Texture2D>(@"ObjectSprites\containers");
         }
 
         public override void Update(GameTime gameTime)
@@ -216,6 +220,19 @@ namespace BurningSteel.GameScreens
 
             TileMap map = new TileMap(tileSets, mapLayers);
             Level level = new Level(map);
+
+            ChestData chestData = new ChestData();
+            chestData.Name = "Chest";
+            chestData.MinGold = 10;
+            chestData.MaxGold = 101;
+
+            Chest chest = new Chest(chestData);
+
+            BaseSprite chestSprite = new BaseSprite(containers, new Rectangle(0,0,32,32), new Point(10,10)); 
+
+            ItemSprite itemSprite = new ItemSprite(chest, chestSprite);
+
+            level.Chests.Add(itemSprite);
 
             World world = new World(gameRef, gameRef.ScreenRectangle);
             world.Levels.Add(level);

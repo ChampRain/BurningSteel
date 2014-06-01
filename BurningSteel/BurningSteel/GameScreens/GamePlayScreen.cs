@@ -52,7 +52,7 @@ namespace BurningSteel.GameScreens
             gameRef.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
                                       SamplerState.PointClamp, null, null, null, player.Camera.Transformation);
 
-            world.DrawLevel(gameRef.spriteBatch, player.Camera);
+            world.DrawLevel(gameTime, gameRef.spriteBatch, player.Camera);
 
             player.Draw(gameTime, gameRef.spriteBatch);
 

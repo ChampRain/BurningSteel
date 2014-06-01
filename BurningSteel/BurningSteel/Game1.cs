@@ -37,7 +37,7 @@ namespace BurningSteel
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
 
             ScreenRectangle = new Rectangle(0,0,screenWidth,screenHeight);
 

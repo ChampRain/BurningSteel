@@ -89,7 +89,7 @@ namespace XRpgLibrary.SpriteClass
             }
         }
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Camera camera)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, animations[currentAnimation].CurrentFrameRect, Color.White);
         }
