@@ -106,6 +106,8 @@
     <Compile Include="ItemClasses\ChestData.cs" />
     <Compile Include="ItemClasses\ItemDataManager.cs" />
     <Compile Include="ItemClasses\ItemManager.cs" />
+    <Compile Include="ItemClasses\Key.cs" />
+    <Compile Include="ItemClasses\KeyData.cs" />
     <Compile Include="ItemClasses\Reagent.cs" />
     <Compile Include="ItemClasses\ReagentData.cs" />
     <Compile Include="ItemClasses\RecipeManager.cs" />

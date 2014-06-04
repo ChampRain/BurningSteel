@@ -146,9 +146,9 @@ namespace XRpgLibrary.TileEngine
         {
             zoom -= .25f;
 
-            if (zoom < .5f)
+            if (zoom < .75f)
             {
-                zoom = .5f;
+                zoom = .75f;
             }
 
             Vector2 newPosition = Position * zoom;

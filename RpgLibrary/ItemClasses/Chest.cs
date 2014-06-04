@@ -43,15 +43,18 @@ namespace RpgLibrary.ItemClasses
 
         public override object Clone()
         {
-            ChestData chestData = new ChestData();
-            chestData.Name = chestData.Name;
-            chestData.IsLocked = chestData.IsLocked;
-            chestData.IsTrapped = chestData.IsTrapped;
-            chestData.TextureName = chestData.TextureName;
-            chestData.TrapName = chestData.TrapName;
-            chestData.KeyName = chestData.KeyName;
-            chestData.MinGold = chestData.MinGold;
-            chestData.MaxGold = chestData.MaxGold;
+            ChestData data = new ChestData();
+            data.Name = chestData.Name;
+            data.DifficultyLevel = chestData.DifficultyLevel;
+            data.IsLocked = chestData.IsLocked;
+            data.IsTrapped = chestData.IsTrapped;
+            data.KeyName = chestData.KeyName;
+            data.KeyType = chestData.KeyType;
+            data.KeysRequired = chestData.KeysRequired;
+            data.TrapName = chestData.TrapName;
+            data.KeyName = chestData.KeyName;
+            data.MinGold = chestData.MinGold;
+            data.MaxGold = chestData.MaxGold;
 
             foreach (KeyValuePair<string, string> pair in chestData.ItemCollection)
             {

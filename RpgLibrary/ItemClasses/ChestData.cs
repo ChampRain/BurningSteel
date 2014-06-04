@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RpgLibrary.SkillClasses;
 
 namespace RpgLibrary.ItemClasses
 {
     public class ChestData
     {
-        public string Name, TextureName, TrapName, KeyName;
+        public string Name, TrapName, KeyName, KeyType;
+        public DifficultyLevel DifficultyLevel;
         public bool IsTrapped, IsLocked;
-        public int MaxGold, MinGold;
+        public int MaxGold, MinGold, KeysRequired;
         public Dictionary<string, string> ItemCollection;
 
         public ChestData()
@@ -19,8 +21,8 @@ namespace RpgLibrary.ItemClasses
 
         public override string ToString()
         {
-            string toString = Name + ", " + TextureName + ", " + IsTrapped + ", " + IsLocked + ", " +
-                              TrapName + ", " + MaxGold + ", " + MinGold;
+            string toString = Name + ", " + DifficultyLevel + ", " + KeyName + ", " + KeyType + ", " + KeysRequired + ", " + 
+                              IsTrapped + ", " + IsLocked + ", " + TrapName + ", " + MaxGold + ", " + MinGold;
 
             foreach (KeyValuePair<string, string> pair in ItemCollection)
             {

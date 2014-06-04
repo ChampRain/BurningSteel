@@ -1,6 +1,6 @@
 ﻿namespace RpgEditor
 {
-    partial class FormClass
+    partial class FormChest
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // FormClass
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 330);
-            this.Name = "FormClass";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Character Designer";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Close);
-            this.ResumeLayout(false);
-
+            this.Text = "FormChest";
         }
 
         #endregion
-
     }
 }
